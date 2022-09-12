@@ -16,8 +16,3 @@ namespace API
         }
     }
 }
-
-
-//TODO: Add all endpoint with logic
-//TODO: Add tests
-//TODO: Refactor

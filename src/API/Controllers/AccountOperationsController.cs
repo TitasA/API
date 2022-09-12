@@ -47,11 +47,12 @@ namespace API.Controllers
             return Ok(balanceDto);
         }
 
+        //TODO: Idea for refactoring. More AccountId to url and update route {id}/operation
         [HttpPost("operation")]
         [SwaggerResponse(StatusCodes.Status201Created)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<BalanceDto>> AddDeposit(AddOperationCommand command)
+        public async Task<ActionResult<BalanceDto>> AddOperation(AddOperationCommand command)
         {
             var account = await _mediator.Send(command);
 
@@ -62,7 +63,7 @@ namespace API.Controllers
         [SwaggerResponse(StatusCodes.Status200OK)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> UppgradeAccount(UpgradeAccountCommand command)
+        public async Task<ActionResult> UpgradeAccount(UpgradeAccountCommand command)
         {
             await _mediator.Send(command);
 
